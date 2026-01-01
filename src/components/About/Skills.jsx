@@ -34,7 +34,7 @@ const skills = [
 
 const Skills = () => {
   return (
-    <section className="py-8">
+    <section className="container mx-auto relative z-10 py-8">
       <h2 className="text-[var(--color-foreground)] text-[22px] font-semibold mb-6 tracking-tight">
         Technologies & Tools
       </h2>

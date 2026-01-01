@@ -9,7 +9,7 @@ import Footer from "./components/Footer";
 
 const App = () => {
   return (
-    <div className="max-w-5xl mx-auto overflow-x-hidden">
+    <div className="max-w-7xl mx-auto px-4  overflow-x-hidden">
       <Navbar />
       <Routes>
         <Route path={"/"} element={<Home />} />

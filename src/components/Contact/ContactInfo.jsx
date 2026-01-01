@@ -8,26 +8,26 @@ import {
 } from "lucide-react";
 
 import { useState } from "react";
-import Button from "../Button";
+
 // import emailjs from "@emailjs/browser";
 
 const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "pedro@example.com",
-    href: "mailto:pedro@example.com",
+    value: "devspace.safi@gmail.com",
+    href: "mailto:devspace.safi@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+880 1310-756290",
+    href: "+880 1310-756290",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Chittagong, Bangladesh",
     href: "#",
   },
 ];
@@ -90,7 +90,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-64 md:w-96 h-64 md:h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
       </div>
 
@@ -112,7 +112,7 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <div className="glass p-8 rounded-3xl border border-primary/30 animate-fade-in animation-delay-300">
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div>
@@ -173,8 +173,10 @@ const ContactSection = () => {
                 />
               </div>
 
-              <Button
-                className="w-full"
+              <button
+                className="w-full flex items-center justify-center gap-2 p-3
+          bg-[#F0F2F5] text-[#0F1418] rounded-[var(--radius)]
+          font-bold text-sm hover:bg-white transition-all "
                 type="submit"
                 size="lg"
                 disabled={isLoading}
@@ -187,7 +189,7 @@ const ContactSection = () => {
                     <Send className="w-5 h-5" />
                   </>
                 )}
-              </Button>
+              </button>
 
               {submitStatus.type && (
                 <div
@@ -210,9 +212,12 @@ const ContactSection = () => {
           </div>
 
           {/* Contact Info */}
+
           <div className="space-y-6 animate-fade-in animation-delay-400">
-            <div className="glass rounded-3xl p-8">
-              <h3 className="text-xl font-semibold mb-6">
+            {/* Contact Card */}
+            <div className="glass rounded-3xl p-3 sm:p-8">
+              {" "}
+              <h3 className="text-lg sm:text-xl font-semibold mb-6">
                 Contact Information
               </h3>
               <div className="space-y-4">
@@ -220,16 +225,18 @@ const ContactSection = () => {
                   <a
                     key={i}
                     href={item.href}
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-surface transition-colors group"
+                    className="flex items-center gap-4 p-2 sm:p-4 rounded-xl hover:bg-surface transition-colors group min-w-0"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <item.icon className="w-5 h-5 text-primary" />
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <div className="text-sm text-muted-foreground">
                         {item.label}
                       </div>
-                      <div className="font-medium">{item.value}</div>
+                      <div className="font-medium break-all sm:break-normal">
+                        {item.value}
+                      </div>
                     </div>
                   </a>
                 ))}
@@ -237,12 +244,12 @@ const ContactSection = () => {
             </div>
 
             {/* Availability Card */}
-            <div className="glass rounded-3xl p-8 border border-primary/30">
+            <div className="glass rounded-3xl p-3 sm:p-8 border border-primary/30">
               <div className="flex items-center gap-3 mb-4">
-                <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
+                <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse flex-shrink-0" />
                 <span className="font-medium">Currently Available</span>
               </div>
-              <p className="text-muted-foreground text-sm">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 I'm currently open to new opportunities and exciting projects.
                 Whether you need a full-time engineer or a freelance consultant,
                 let's talk!

@@ -1,9 +1,4 @@
-import Button from "./Button";
-import AnimatedBorderButton from "./AnimatedBorderButton";
-
 import {
-  ArrowRight,
-  Download,
   ChevronDown,
   Linkedin,
   Twitter,
@@ -20,7 +15,7 @@ import {
   Palette,
   Triangle,
   Send,
-  Terminal,
+  FileText,
 } from "lucide-react";
 
 const skills = [
@@ -39,11 +34,12 @@ const skills = [
   { name: "Github", icon: <Github size={18} /> },
   { name: "Postman", icon: <Send size={18} /> },
 ];
+
 export const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
-      <div className="absolute inset-0">
+      <div className="absolute ">
         <img
           src="/hero-bg.jpg"
           alt="Hero image"
@@ -72,8 +68,8 @@ export const Hero = () => {
       </div> */}
 
       {/* Content */}
-      <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6  pt-32 pb-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Column - Text Content */}
           <div className="space-y-8">
             <div className="animate-fade-in">
@@ -82,15 +78,13 @@ export const Hero = () => {
                 Software Engineer • Full stack problem solver
               </span>
             </div>
-
             {/* Headline */}
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Hello world!{" "}
+              <h1 className="text-2xl lg:text-6xl font-bold leading-tight animate-fade-in animation-delay-100">
+                Hello world !{" "}
                 <span className="text-primary glow-text">Safi</span>
                 <br />
-                is a
-                <br />
+                is a {"  "}
                 <span className="font-serif italic font-normal text-white">
                   Full Stack developer.
                 </span>
@@ -100,27 +94,40 @@ export const Hero = () => {
                 impactful web experiences
               </p>
             </div>
-
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5" />
-              </Button>
-              <AnimatedBorderButton>
-                <Download className="w-5 h-5" />
-                Download CV
-              </AnimatedBorderButton>
-            </div>
+              <button
+                className="flex items-center gap-2 px-3 sm:px-5 py-2.5 
+          bg-[var(--color-surface)] border border-[var(--color-border)] 
+          rounded-[var(--radius)] font-bold text-xs sm:text-sm hover:bg-black/20 transition-all"
+              >
+                <FileText size={18} />
+                Resume / CV
+              </button>
 
+              {/* Primary Button: Get in touch */}
+              <button
+                className="flex items-center gap-2 px-3 sm:px-5 py-2.5 
+          bg-[#F0F2F5] text-[#0F1418] rounded-[var(--radius)] 
+          font-bold text-xs sm:text-sm hover:bg-white transition-all"
+              >
+                <Send size={18} />
+                Get in touch
+              </button>
+            </div>
             {/* Social Links */}
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
+                { icon: Github, href: "https://github.com/7saffix" },
+                {
+                  icon: Linkedin,
+                  href: "https://www.linkedin.com/in/shah-aziz-chowdhury-safi/",
+                },
+                { icon: Twitter, href: "https://x.com/_saffix_" },
               ].map((social, idx) => (
                 <a
+                  target="_blank"
                   key={idx}
                   href={social.href}
                   className="p-2 rounded-full glass hover:bg-primary/10 hover:text-primary transition-all duration-300"
@@ -133,14 +140,14 @@ export const Hero = () => {
           {/* Right Column - Profile Image */}
           <div className="relatice animate-fade-in animation-delay-300">
             {/* Profile Image */}
-            <div className="relative max-w-md mx-auto">
+            <div className="relative max-w-sm mx-auto">
               <div
                 className="absolute inset-0 
               rounded-3xl bg-gradient-to-br 
               from-primary/30 via-transparent 
               to-primary/10 blur-2xl animate-pulse"
               />
-              <div className="relative glass rounded-3xl p-2 glow-border">
+              <div className="relative glass rounded-3xl glow-border">
                 <img
                   src="/profile-photo.png"
                   alt="Pedro Machado"
@@ -158,7 +165,7 @@ export const Hero = () => {
                 </div>
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">5+</div>
+                  <div className="text-2xl font-bold text-primary">2+</div>
                   <div className="text-xs text-muted-foreground">
                     Years Exp.
                   </div>
@@ -207,19 +214,6 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-      </div>
-
-      <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 
-      animate-fade-in animation-delay-800"
-      >
-        <a
-          href="#about"
-          className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
-        >
-          <span className="text-xs uppercase tracking-wider">Scroll</span>
-          <ChevronDown className="w-6 h-6 animate-bounce" />
-        </a>
       </div>
     </section>
   );
