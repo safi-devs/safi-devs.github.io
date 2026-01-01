@@ -1,7 +1,12 @@
 import React from "react";
+import Projects from "../components/Project/ProjectCard";
 
 const Project = () => {
-  return <div>project</div>;
+  return (
+    <div>
+      <Projects />
+    </div>
+  );
 };
 
 export default Project;
