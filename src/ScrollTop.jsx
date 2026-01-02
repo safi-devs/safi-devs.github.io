@@ -5,9 +5,13 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // This forces the browser to jump to the top (0,0)
-    // every time the URL path changes
-    window.scrollTo(0, 0);
+    // This 'top: 0, left: 0, behavior: "instant"' override
+    // forces the browser to ignore CSS smooth scrolling.
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
   }, [pathname]);
 
   return null;
