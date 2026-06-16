@@ -9,7 +9,7 @@ import {
 
 import { useState } from "react";
 
-// import emailjs from "@emailjs/browser";
+import emailjs from "@emailjs/browser";
 
 const contactInfo = [
   {
@@ -56,20 +56,21 @@ const ContactSection = () => {
 
       if (!serviceId || !templateId || !publicKey) {
         throw new Error(
-          "EmailJS configuration is missing. Please check your environment variables."
+          "EmailJS configuration is missing. Please check your environment variables.",
         );
       }
 
-      // await emailjs.send(
-      //   serviceId,
-      //   templateId,
-      //   {
-      //     name: formData.name,
-      //     email: formData.email,
-      //     message: formData.message,
-      //   },
-      //   publicKey
-      // );
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          time: new Date().toLocaleString(),
+        },
+        publicKey,
+      );
 
       setSubmitStatus({
         type: "success",
@@ -144,6 +145,8 @@ const ContactSection = () => {
                   Email
                 </label>
                 <input
+                  id="email"
+                  type="email"
                   required
                   placeholder="your@email.com"
                   value={formData.email}

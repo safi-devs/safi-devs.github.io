@@ -9,7 +9,7 @@ const Home = () => {
       <Hero />
       <Projects />
       {/* View All btn */}
-      <div className="flex justify-center mt-12 animate-fade-in animation-delay-500">
+      <div className="hidden justify-center mt-12 animate-fade-in animation-delay-500">
         <button
           className="flex items-center gap-2 px-5 py-2.5 
                 bg-[var(--color-surface)] border border-[var(--color-border)] 

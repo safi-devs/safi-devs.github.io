@@ -2,40 +2,40 @@ import { ArrowUpRight, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Fintech Dashboard",
+    title: "TourBee",
     description:
-      "A comprehensive financial analytics platform with real-time data visualization, portfolio management, and AI-powered insights.",
+      "TourBee is a comprehensive tour management and booking platform designed to simplify the travel experience.",
     image: "/projects/project1.png",
-    tags: ["React", "Typescript", "NodeJS"],
-    link: "#",
-    github: "#",
+    tags: [
+      "Typescript",
+      "NodeJS",
+      "Express.js",
+      "MongoDB",
+      "React",
+      "Redux Toolkit",
+      "Javascript",
+      "Tailwind",
+    ],
+    link: "https://tour-bee-theta.vercel.app",
+    github: "https://github.com/7saffix/TourBee-server",
   },
   {
-    title: "E-Commerce Platform",
+    title: "Work Flow",
     description:
-      "A full-featured e-commerce solution with inventory management, payment processing, and analytics dashboard.",
+      "A modern Inventory Management System built to manage products, sales, purchases, customers, suppliers, expenses, and analytics with a clean admin dashboard UI.",
     image: "/projects/project2.png",
-    tags: ["Next.js", "Stripe", "PostgreSQL", "Tailwind"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "AI Writing Assistant",
-    description:
-      "An intelligent writing tool powered by GPT-4, helping users create better content faster.",
-    image: "/projects/project3.png",
-    tags: ["React", "OpenAI", "Python", "FastAPI"],
-    link: "#",
-    github: "#",
-  },
-  {
-    title: "Project Management Tool",
-    description:
-      "A collaborative workspace for teams with real-time updates, task tracking, and integrations.",
-    image: "/projects/project4.png",
-    tags: ["Next.js", "Socket.io", "MongoDB", "Redis"],
-    link: "#",
-    github: "#",
+    tags: [
+      "Typescript",
+      "NodeJS",
+      "Express.js",
+      "MongoDB",
+      "React",
+      "Redux Toolkit",
+      "Javascript",
+      "Tailwind",
+    ],
+    link: "https://work-flow-inventory-management-syst.vercel.app/",
+    github: "https://github.com/7saffix/Work-Flow-server",
   },
 ];
 
