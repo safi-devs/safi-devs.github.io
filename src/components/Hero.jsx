@@ -268,7 +268,7 @@ export const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         {/* Main Content Wrapper - Centered alignment */}
-        <div className="w-full max-w-5xl mx-auto flex flex-col items-center text-center space-y-8">
+        <div className="w-full max-w-5xl mx-auto flex flex-col sm:items-center sm:text-center space-y-8">
           {/* Top Status Badge */}
           <div className="animate-fade-in">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
@@ -294,14 +294,14 @@ export const Hero = () => {
           </div>
 
           {/* Call to Actions (Buttons) */}
-          <div className="flex flex-wrap justify-center items-center gap-4 animate-fade-in animation-delay-300 w-full">
+          <div className="flex sm:justify-center sm:items-center gap-4 animate-fade-in animation-delay-300 w-full">
             <a
               target="_blank"
               rel="noopener noreferrer"
               href="https://drive.google.com/file/d/1iWfmFFga9bWguDXO-ov7iwlmRaoKtq-f/view?usp=drive_link"
               className="flex items-center gap-2 px-5 py-2.5 
                 bg-[var(--color-surface)] border border-[var(--color-border)] 
-                rounded-[var(--radius)] font-bold text-sm hover:bg-black/20 transition-all"
+                rounded-[var(--radius)] font-bold text-xs sm:text-sm hover:bg-black/20 transition-all"
             >
               <FileText size={18} />
               Resume / CV
@@ -312,7 +312,7 @@ export const Hero = () => {
               to={"/contact"}
               className="flex items-center gap-2 px-5 py-2.5 
                 bg-[#F0F2F5] text-[#0F1418] rounded-[var(--radius)] 
-                font-bold text-sm hover:bg-white transition-all"
+                font-bold text-xs sm:text-sm hover:bg-white transition-all"
             >
               <Send size={18} />
               Get in touch
@@ -320,7 +320,7 @@ export const Hero = () => {
           </div>
 
           {/* Social Links Panel */}
-          <div className="flex items-center justify-center gap-4 animate-fade-in animation-delay-400 w-full">
+          <div className="flex items-center sm:justify-center gap-4 animate-fade-in animation-delay-400 w-full">
             <span className="text-sm text-muted-foreground">Follow me: </span>
             {[
               { icon: Github, href: "https://github.com/7saffix" },
