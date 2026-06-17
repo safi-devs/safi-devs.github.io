@@ -1,187 +1,99 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght=100..900&family=Roboto:ital,wght=0,100..900;1,100..900&display=swap');
 
 @import "tailwindcss";
 
 @theme {
-  --color-background: #0f1418;
-  --color-foreground: #f0f2f5;
+  /* Main Canvas: Soft slate-gray instead of pitch-black */
+  --color-background: #141414; 
+  --color-foreground: #f8fafc; /* Crisp, clean off-white */
 
-  --color-card: #141a1f;
+  /* Raised Containers: Slightly lighter gray layers to build clean depth */
+  --color-card: #252a36;       
+  --color-surface: #2b313f;    /* Perfect foundation for your glass blur effects */
 
-  --color-primary: #20b2a6;
-  --color-primary-foreground: #ffffff;
+  /* Primary Action Elements (Keeping a very bright silver/white for clarity) */
+  --color-primary: #ffffff;    
+  --color-primary-foreground: #1e222b;
 
-  --color-secondary: #1f2830;
-  --color-secondary-foreground: #20b2a6;
+  /* Secondary Items & Interactive Hover States */
+  --color-secondary: #313847;
+  --color-secondary-foreground: #cbd5e1;
 
-  --color-muted: #252e37;
-  --color-muted-foreground: #7a8491;
+  /* Muted Text & Minimal Structural Sub-panels */
+  --color-muted: #282f3d;
+  --color-muted-foreground: #94a3b8;
 
-  --color-border: #242b32;
+  /* Border Separators: Subtle dark lines to keep grids defined but soft */
+  --color-border: #384152;     
 
   --radius: 0.75rem;
-
-  --color-highlight: #f5a623;
-  --color-surface: #1a2329;
+  --color-highlight: #ffffff;
 }
+/* Base, Components, and Utilities sections remain exactly identical to Option 1 */
+
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  button {
-    cursor: pointer;
-  }
-
+  html { scroll-behavior: smooth; }
+  button { cursor: pointer; }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    /* font-family: "Inter", sans-serif; */
     font-family: 'Geist', sans-serif;
   }
-
 }
 
 @layer components {
   .glass {
-    background-color: color-mix(in srgb, var(--color-surface) 50%, transparent);
+    background-color: color-mix(in srgb, var(--color-surface) 40%, transparent);
     backdrop-filter: blur(16px);
-    border: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
   }
 
   .glass-strong {
-    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+    background-color: color-mix(in srgb, var(--color-surface) 75%, transparent);
     backdrop-filter: blur(24px);
     border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
   }
 
-  /* still not added */
   .glow-text {
-    text-shadow: 0 0 30px
-      color-mix(in srgb, var(--color-primary) 50%, transparent);
+    text-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 35%, transparent);
   }
 
   .glow-border {
-    box-shadow: 0 0 20px
-        color-mix(in srgb, var(--color-primary) 20%, transparent),
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 15%, transparent),
       inset 0 0 20px color-mix(in srgb, var(--color-primary) 5%, transparent);
   }
 }
 
 @layer utilities {
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-      filter: blur(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-      filter: blur(0);
-    }
-  }
+  @keyframes fade-in { from { opacity: 0; transform: translateY(20px); filter: blur(10px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+  @keyframes slow-drift { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(20px, -30px); } 50% { transform: translate(-15px, -20px); } 75% { transform: translate(30px, 10px); } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-  @keyframes slow-drift {
-    0%,
-    100% {
-      transform: translate(0, 0);
-    }
-    25% {
-      transform: translate(20px, -30px);
-    }
-    50% {
-      transform: translate(-15px, -20px);
-    }
-    75% {
-      transform: translate(30px, 10px);
-    }
-  }
+  .animate-fade-in { animation: fade-in 0.8s ease-out both; }
+  .animate-float { animation: float 4s ease-in-out infinite; }
+  .animate-marquee { animation: marquee 30s linear infinite; }
 
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
 
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.8s ease-out both;
-  }
-
-  .animate-float {
-    animation: float 4s ease-in-out infinite;
-  }
-
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
-  }
-
-  .animation-delay-100 {
-    animation-delay: 100ms;
-  }
-
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-
-  .animation-delay-300 {
-    animation-delay: 300ms;
-  }
-
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-
-  .animation-delay-500 {
-    animation-delay: 500ms;
-  }
-
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-
-  .animation-delay-800 {
-    animation-delay: 800ms;
-  }
-
-  @keyframes animated-border {
-    0% {
-      stroke-dashoffset: 400;
-    }
-    100% {
-      stroke-dashoffset: -550;
-    }
-  }
-
-  .group:hover .animated-border-path {
-    animation: animated-border 1.5s linear infinite;
-  }
+  @keyframes animated-border { 0% { stroke-dashoffset: 400; } 100% { stroke-dashoffset: -550; } }
+  .group:hover .animated-border-path { animation: animated-border 1.5s linear infinite; }
 
   .animated-border:hover {
-    background-color: color-mix(in srgb, #26c4b8 15%, transparent);
+    background-color: color-mix(in srgb, var(--color-primary) 8%, transparent);
     backdrop-filter: blur(16px);
-    box-shadow: 0 0 20px color-mix(in srgb, #26c4b8 20%, transparent);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--color-primary) 12%, transparent);
   }
 
   .timeline-glow {
-    box-shadow: 0 0 40px
-        color-mix(in srgb, var(--color-primary) 35%, transparent),
-      0 0 80px color-mix(in srgb, var(--color-primary) 25%, transparent);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--color-primary) 20%, transparent),
+      0 0 80px color-mix(in srgb, var(--color-primary) 10%, transparent);
   }
 }

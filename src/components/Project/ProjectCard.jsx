@@ -34,7 +34,7 @@ const projects = [
       "Javascript",
       "Tailwind",
     ],
-    link: "https://work-flow-inventory-management-syst.vercel.app/",
+    link: "https://work-flow-inventory-management-syst.vercel.app",
     github: "https://github.com/7saffix/Work-Flow-server",
   },
 ];
@@ -87,6 +87,8 @@ const Projects = () => {
                 {/* Overlay Links */}
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a
+                    target="_blank"
+                    rel="noopener noreferrer"
                     href={project.link}
                     className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
                   >
@@ -107,12 +109,15 @@ const Projects = () => {
                   <h3 className="text-xl font-semibold group-hover:text-primary transition-colors">
                     {project.title}
                   </h3>
-                  <ArrowUpRight
-                    className="w-5 h-5 
-                  text-muted-foreground group-hover:text-primary
-                   group-hover:translate-x-1 
-                   group-hover:-translate-y-1 transition-all"
-                  />
+
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={project.link}
+                    className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
+                  >
+                    <ArrowUpRight className="w-5 h-5" />
+                  </a>
                 </div>
                 <p className="text-muted-foreground text-sm">
                   {project.description}
